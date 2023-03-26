@@ -34,15 +34,15 @@ class Histogramme(Density):
 		self.bins = None
 
 	def fit(self, x):
-		"""
-		Apprend l'histogramme de la densité sur x
-		"""
+		
 		self.density, self.bins = np.histogramdd(
 			x, bins=[self.steps]*x.shape[-1], density=True
 		)
 
 	def predict(self, x):
+		
 		def to_bin(x):
+			
 			oui = np.stack(self.bins, axis=1)
 			l = []
 			xi_dim = x.shape[-1]
